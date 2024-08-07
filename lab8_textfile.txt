@@ -1,0 +1,27 @@
+input(What bread would you like)
+select from these options
+['white', 'wheat','sourdough']
+
+input(What meat would you like)
+select from these options
+['chicken','turkey','ham','tofu']
+
+input(want Cheese)
+yes or no
+input(What Cheese would you like)
+['cheddar', 'Swiss',  'mozzarella']
+
+want mayo
+input(yes or no)
+want mustard
+(yes or no)
+want lettuce
+(yes or no)
+want tomato
+(yes or no)
+
+select amount of hat type of sandwhich
+
+calulate cost function
+(bread+meat+Cheese+mayo++lettuce+tomato * amount of sandwhiches)
+add all of them together but set values to 0 if they dont want mayo,lettuce, etc.

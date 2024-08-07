@@ -1,0 +1,52 @@
+#CIS188_Frankie_Lab7.py
+
+import re
+
+passwordLength = 10
+user = 'bob'
+
+passwordList = [
+    'bob123@abC',
+    'abc123@boB',
+    'okaysue@abC',
+    'okay123andabC',
+    'okay123@abc',
+    'okay1@abC',
+    '123456@!$123 ',
+    'okay123@abC'
+]
+
+
+tenChar =    re.compile(r'.{' + str(passwordLength) + ',}')
+oneNumber =  re.compile(r'\d+')
+oneSpecial = re.compile(r'[@]|[$]|[_]')
+oneLower =   re.compile(r'[a-z]+')
+oneUpper =   re.compile(r'[A-Z]+')
+noUsername = re.compile(r'^((?!' + user + ').)*$')
+
+for password in passwordList:
+    #Check password against all of our regex and create match objects
+  Character = tenChar.search(password)
+  Number = oneNumber.search(password)
+  Special = oneSpecial.search(password)
+  Lower = oneLower.search(password)
+  Upper = oneUpper.search(password)
+  User = noUsername.search(password.lower())
+  # Object will be NoneType if no match, so we make sure that None is not there
+  if(Character is not None and Number is not None and Special is not None and Lower is not None and Upper is not None and User is not None):
+    print(password + '| Pass ')
+  if(Character is None and Number is not None and Special is not None and Lower is not None and Upper is not None and User is not None):
+     print(password + '| Fail,Password too short ')
+  if(Character is not None and Number is None and Special is not None and Lower is not None and Upper is not None and User is not None):
+      print(password + '| Fail, No Number detected ')
+  if(Character is not None and Number is not None and Special is None and Lower is not None and Upper is not None and User is not None):
+    print(password + '| Fail, no special character detected ')
+  if(Character is not None and Number is not None and Special is not None and Lower is None and Upper is not None and User is not None):
+    print(password + '| Fail, no lowercase letter detected ')
+  if(Character is not None and Number is not None and Special is not None and Lower is not None and Upper is None and User is not None):
+    print(password + '| Fail, no uppercase letter detected ')  
+  if(Character is not None and Number is not None and Special is not None and Lower is not None and Upper is not None and User is None):
+    print(password + '| Fail, Username Detected')
+  if(Character is not None and Number is not None and Special is not None and Lower is None and Upper is None and User is not None):
+    print(password + '| Fail, No Letters Detected ')
+  

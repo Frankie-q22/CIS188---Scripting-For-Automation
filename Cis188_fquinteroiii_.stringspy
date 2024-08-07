@@ -1,0 +1,73 @@
+#Frankie Quintero
+import random
+from collections import defaultdict
+
+#Determine the number of characters in the string (excluding spaces)
+def count_characters_without_spaces(input_string):
+    return len(input_string.replace(" ", ""))
+
+#Determine and return the character in the 6th position of the string
+def get_character_at_position_6(input_string):
+    if len(input_string) >= 6:
+        return input_string[5]  # Python uses 0-based indexing
+    else:
+        return "String is too short for Task 2"
+
+#Return the given string in all uppercase
+def uppercase_string(input_string):
+    return input_string.upper()
+
+#Determine and return the last word, repeated a random number of times
+def repeat_last_word(input_string):
+    words = input_string.split()
+    if len(words) > 0:
+        last_word = words[-1]
+        repeat_count = random.randint(1, 5)  # Randomly repeat the word 1 to 5 times
+        return " ".join(words[:-1]) + " " + last_word * repeat_count
+    else:
+        return "String is too short for Task 4"
+
+#Create and return a dictionary of word frequencies
+def word_frequency_dictionary(input_string):
+    words = input_string.split()
+    word_count = defaultdict(int)
+    for word in words:
+        word_count[word] += 1
+    return dict(word_count)
+
+def main():
+    user_input = input("Enter a string: ")
+    
+    if len(user_input) < 6:
+        print("String is too short for Task 2.")
+    else:
+        # Task 1
+        char_count = count_characters_without_spaces(user_input)
+        print(f"Number of characters (excluding spaces): {char_count}")
+
+        # Task 2
+        char_at_6 = get_character_at_position_6(user_input)
+        print(f"Character at position 6: {char_at_6}")
+
+    # Task 3
+    uppercase_result = uppercase_string(user_input)
+    print(f"Here Is The Quote By Someone Yelling It: {uppercase_result}")
+
+    # Task 4
+    repeated_last_word = repeat_last_word(user_input)
+    print(f"Last word repeated: {repeated_last_word}")
+
+    # Task 5
+    word_freq_dict = word_frequency_dictionary(user_input)
+    print("Word Frequency Dictionary:")
+    for word, count in word_freq_dict.items():
+        print(f"{word}: {count}")
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+

@@ -1,0 +1,133 @@
+for i in range(3):
+  print('Press "SPACE" To Start')
+print("\n")
+
+print("Welcome Player, Get Prepared To Go On An Adventure")
+print('---------------------------------------------------')
+Player = input('What is your name: ')
+
+print('\n')
+print("Nice To Meet You,", Player)
+print('\n')
+
+print('Here Is The Weapons Are Stored, Select your Weapon (Enter A Number)')
+print("1. Sword")
+print("2. Bow")
+print("3. Actually, I Can Use Magic")
+print("4. A pair of Daggers")
+print('==================================================================================================================================================')
+
+def Try_Again():
+  print("Here Are The Options Once More")
+  print("1. Sword")
+  print("2. Bow")
+  print("3. Actually, I Can Use Magic")
+  print("4. A pair of Daggers")
+  
+def try_again():
+  print("Here Are The Options Once More")
+  print("1. The Orc, This fellow carries a battle axe, can do exceptional damage to Bosses")
+  print("2. The Healer, This one can Heal you when injured and/or near death")
+  print("3. The Fighter, Very skilled at using weapons and can help clearing out a room ")
+  print("4. The Theif, A knack for finding gold in all places, he's sure to make you rich")
+
+try:
+ Weapon = int(input("Enter Your Number Here: "))
+except ValueError:
+  print("Thats not a number, YOU FOOL, select a number")
+  print("==================================================================================================================================================")
+  Try_Again()
+  print('==================================================================================================================================================')
+  Weapon = int(input("Enter Your Number Here: "))
+  
+while Weapon > 4 or Weapon < 1:
+  print('Not A Valid Choice')
+  print("==================================================================================================================================================")
+  Try_Again()
+  print('==================================================================================================================================================')
+  Weapon = int(input("Enter Your Number Here: "))
+else:
+ if Weapon == 1:
+  print("==================================================================================================================================================")
+  print("A Solid choice, The Sword has slain many with a mighty blow")
+ if Weapon == 2:
+  print("==================================================================================================================================================")
+  print("An Excellent Weapon, You Must Be A Good Shot") 
+if Weapon == 3:
+  print("==================================================================================================================================================")
+  print(" Well I'll be, I Didnt Take You For A Sorcerer")
+if Weapon == 4:
+  print("==================================================================================================================================================")
+  print(" These Are Thief weapons, Are You A Thief? Anyways Follow Me")
+print("\n")
+
+
+if Weapon == 1:
+  Weapon = "Sword"
+if Weapon == 2:
+  Weapon = "Bow"
+if Weapon == 3:
+ Weapon = "Spells" 
+if Weapon == 4:
+  Weapon = "Daggers"
+print("Now Then, Choose a Companion!!")
+print("==================================================================================================================================================")
+print("1. The Orc, This fellow carries a battle axe, can do exceptional damage to Bosses")
+print("2. The Healer, She can Heal you when injured and/or near death")
+print("3. The Fighter, Very skilled at using weapons and can help clearing out a room ")
+print("4. The Theif, A knack for finding gold in all places, he's sure to make you rich")
+
+try:
+ Companion = int(input("Enter Your Number Here: "))
+except ValueError:
+  print("Thats not a number, YOU FOOL, select a number")
+  print("==================================================================================================================================================")
+  try_again()
+  print('==================================================================================================================================================')
+  Companion = int(input("Enter Your Number Here: "))
+  
+while Companion > 4 or Companion < 1:
+  print('Not A Valid Choice')
+  print("==================================================================================================================================================")
+  try_again()
+  print('==================================================================================================================================================')
+  Weapon = int(input("Enter Your Number Here: "))
+  
+  
+  
+else:
+ if Companion == 1:
+  print("==================================================================================================================================================")
+  print('THE ORC!! I Should Nickname You The "STRONG" and "MIGHTY" HA HA HA ')
+  print("\n")
+  print("Anyways" ,Player ,", You Fellas Are Ready To Go Dungeon Crawling")
+  print("Get Your", Weapon, "Ready And Get Out Of Here")
+  print("Bring Me The Head Of Whatever Beast You Kill")
+  print("\n")
+ if Companion == 2:
+  print("==================================================================================================================================================")
+  print("The Healer!! Saved My Life More Than Once, She'll Take Good Care Of You") 
+  print("\n")
+  print("Anyways" ,Player ,", You Fellas Are Ready To Go Dungeon Crawling")
+  print("Get Your", Weapon, "Ready And Get Out Of Here")
+  print("Make Sure You Take Care Of Her Too")
+  print("\n")
+if Companion == 3:
+  print("==================================================================================================================================================")
+  print("Ho HO! He has some neat tricks up his sleeves, Never fails to suprise")
+  print("\n")
+  print("Anyways" ,Player ,", You Fellas Are Ready To Go Dungeon Crawling")
+  print("Get Your", Weapon, "Ready And Get Out Of Here")
+  print("Any Weapons You Find Out There, He Can Train You To Use")
+  print("\n")
+if Companion == 4:
+  print("==================================================================================================================================================")
+  print("You two seemed to have clicked awfully quick, ya sure youre not a Thief?")
+  print("\n")
+  print("Anyways" ,Player ,", You Fellas Are Ready To Go Dungeon Crawling")
+  print("Get Your", Weapon, "Ready And Get Out Of Here")
+  print("If You Find Any KnickNacks, Bring Them To Me")
+  print("I Can Fence Those Items And Get You More Gold")
+  print("\n")
+  
+

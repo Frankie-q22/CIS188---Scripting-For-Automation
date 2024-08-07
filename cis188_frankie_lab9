@@ -1,0 +1,91 @@
+from pathlib import Path
+import zipfile, os
+import re
+import time
+import shutil
+import glob
+
+
+'''In this lab you have been given a zip file, called files.zip (attached), containing several subdirectories and within each subdirectory is a PDF and an image file.   
+'''
+def rm_tree(pth):
+    pth = Path(pth)
+    for child in pth.glob('*'):
+        if child.is_file():
+            child.unlink()
+        else:
+            rm_tree(child)
+    pth.rmdir()
+
+# Your task is to write a script that will move all the PDF files into a directory called PDF and the images into a directory called images. 
+#counts 
+countJPG = 0
+countPDF = 0
+# Open Zip
+path = 'C:/Users/Frank/Downloads/Coding Folder!!/CIS188/Lab_9/' 
+pathfiles = 'FilesForLab/files/'
+#pathDummy = 'FilesForLab/Dummy/'
+print(path)
+
+def Zipper(path):
+ Zip = zipfile.ZipFile(path+'files.zip')
+ print(Zip.namelist())
+ Zip.extractall(path +'files.zip')
+ Zip.close()
+
+
+
+
+#creates folders(images and pdf) 
+#os.mkdir(path/'Lab9Files')
+#os.makedirs(path/'Lab9Files/images')
+#os.makedirs(path/'Lab9Files/pdf')
+
+dirs = os.listdir(path + pathfiles)
+#print(dirs)
+
+for d in dirs:
+    J = glob.glob(path + pathfiles + d +'\*.jpg')
+    P =glob.glob(path + pathfiles + d +'\*.pdf')
+    for j in J:
+        shutil.move(j,path + "Lab9Files/jpg")
+    for p in P:
+        shutil.move(p,path + "Lab9Files/pdf")
+    #print(d)
+    #print(J)
+    #print(P)
+    #shutil.move(path + pathfiles + d + '*.img')
+#print(path + 'FilesForLabs/files' + d + '/*.img')
+    
+    
+#pdfs =  re.compile(path + 'FilesforLab/Dummy/*.pdf')
+
+#pdfs =  re.compile(r'^.*\.(pdf)$')
+#jpgs =  re.compile(r'^.*\.(jpg)$')
+#print(pdfs)
+
+
+
+
+# and then print out a directory listing of both the images and pdf folders.  
+pdflist = os.listdir(path + 'Lab9Files/pdf')
+jpglist = os.listdir( path + 'Lab9Files/jpg')
+pdfstr = 'PDFs: '
+jpgstr = 'JPGs: '
+for image in pdflist:
+    pdfstr += " " + image
+for image in jpglist:
+    jpgstr += " " + image
+    
+#print(pdfstr + '\n') 
+#print(jpgstr + '\n') 
+
+
+
+print(path + 'Lab9Files')
+print('_______________________________________________________________')
+print('--- pdfs:',(len(pdflist)))
+print('--- jpgs:', (len(jpglist)))
+      
+      
+
